@@ -2,22 +2,50 @@
 const { dankort } = Astro.props;
 ---
 
-
-
-<article>
-<h4 class="h4">{dankort.place}</h4>
+<article data-type={dankort.region}>
+  <h4 class="h4">{dankort.place}</h4>
   <h4 class="h4 city">{dankort.city}</h4>
-    <img src={dankort.image} alt="billeder af naturområderne i Danmark" loading="lazy" class="natureimg">
+  
+  <div>
+    <img src={dankort.image} alt={dankort.place} width="400" height="300" class="natureimg">
     <div class="overlay">
-         <img src={dankort.svg} alt="svg animation" loading="lazy" class="svgimg">
+      <img src={dankort.svg} alt="svg animation" loading="lazy" class="svgimg">
     </div>
-    </article>
+  </div>
+
+  <a href={`/details/${dankort.id}`}>
+    <button class="p">LÆS MERE</button>
+  </a>
+</article>
+
 
 <style>
     article{
        margin: 0 auto;
-       position: relative;
+  position: relative;
+  display: inline-block;
     }
+
+  button, .p {
+    display: flex;
+  position: absolute;
+  transform: translateX(-50%);
+  left: 50%;
+  bottom: 8%;
+  font-weight: bold;
+  padding: 15px 40px;
+  border-radius: 20px;
+  color: var(--dankort-hvid);
+  background: var(--dankort-roed);
+  border: none;
+  cursor: pointer;
+  z-index: 4;
+  white-space: nowrap;
+    }
+
+button:hover {
+  background-color:#BD191C;
+}
 
     .h4 {
         position: absolute;
@@ -35,7 +63,7 @@ const { dankort } = Astro.props;
     }
 
     .overlay {
-        display: flex;
+    display: flex;
     justify-content: center;
     align-items: center;
     position: absolute;
@@ -56,9 +84,8 @@ const { dankort } = Astro.props;
     
         .natureimg {
         display: block;
-   height: auto;
-    width: 100%;
-    max-width: 100%;
+        height: auto;
+        width: 100%;
         border-radius: 20px;
         z-index: 1;
         }
@@ -68,7 +95,7 @@ const { dankort } = Astro.props;
         align-items: center;
         opacity: 1;
         clip-path: inset(0 0 100% 0); 
-        transition: clip-path 3s ease-in, opacity 1s ease;
+        transition: clip-path 2s ease-in, opacity 1s ease;
         }
 
          article:hover .svgimg {
@@ -79,18 +106,19 @@ const { dankort } = Astro.props;
         opacity: 0;
        }
 
-        .hide {
-         display: none;
-       }
-
         
  @media (min-width: 800px) {
 
     article {
-                display: inline-block;
-                margin: 0;
+    
+                margin: 0px;
             }
             
+button, .p {
+  font-weight: 700;
+   padding: clamp(8px, 1.5vw, 15px) clamp(18px, 3vw, 40px);
+    }
         }
+        
 
 </style>

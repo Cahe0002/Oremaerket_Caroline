@@ -1,14 +1,20 @@
 ---
 const { dankort } = Astro.props;
 ---
-<article data-type={dankort.region}><h3 class="h4">{dankort.place}</h3>
-    <img src={dankort.image} alt="billeder af naturområderne i Danmark" width="400"
-  height="300" loading="lazy" class="natureimg">
+<article data-type={dankort.region}>
+  <h4 class="h4">{dankort.place}</h4>
+  <h4 class="h4 city">{dankort.city}</h4>
+  
+  <div>
+    <img src={dankort.image} alt={dankort.place} width="400" height="300" class="natureimg">
     <div class="overlay">
-         <img src={dankort.svg} alt="svg animation" loading="lazy" class="svgimg">
+      <img src={dankort.svg} alt="svg animation" loading="lazy" class="svgimg">
     </div>
-    <a href=`details/${dankort.id}`>
-      <button class="p">LÆS MERE</button></a>
+  </div>
+
+  <a href={`/details/${dankort.id}`}>
+    <button class="p">LÆS MERE</button>
+  </a>
 </article>
 
 <style>
@@ -17,14 +23,29 @@ const { dankort } = Astro.props;
        position: relative;
     }
 
-  button {
+
+    .h4 {
+        position: absolute;
+        top: 1.4rem;
+        left: 1.6rem;
+        color: var(--dankort-hvid);
+        z-index: 3;
+        white-space: nowrap;
+    }
+
+    .city {
+         top: 3rem;
+        font-weight: 200;
+    }
+
+  button, .p {
     display: flex;
   position: absolute;
   transform: translateX(-50%);
   left: 50%;
   bottom: 8%;
-  font-weight: 700;
-  padding: 15px 25px;
+  font-weight: bold;
+  padding: 15px 40px;
   border-radius: 20px;
   color: var(--dankort-hvid);
   background: var(--dankort-roed);
@@ -37,16 +58,6 @@ const { dankort } = Astro.props;
 button:hover {
   background-color:#BD191C;
 }
-
-    h3 {
-        position: absolute;
-        top: 0;
-        left: 0;
-        color: var(--dankort-hvid);
-        margin: 1.4rem 1.6rem;
-        z-index: 3;
-        white-space: nowrap;
-    }
 
     .overlay {
         display: flex;
@@ -104,7 +115,7 @@ button:hover {
                 margin: 0px;
             }
             
-button {
+button, .p {
   font-weight: 700;
    padding: clamp(8px, 1.5vw, 15px) clamp(18px, 3vw, 40px);
     }

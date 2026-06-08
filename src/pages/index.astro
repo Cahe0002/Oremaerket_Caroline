@@ -11,7 +11,7 @@ import PhysicalcardIndex from "../components/Physicalcard_index.astro";
 import Partners from "../components/Partners.astro";
 import Faq from "../components/Faq.astro";
 
-const endpoint = "https://ffbiajyenlsazjzqyxoa.supabase.co/rest/v1/dankort?limit=3"
+const endpoint = "https://ffbiajyenlsazjzqyxoa.supabase.co/rest/v1/dankort?select=*&limit=3"
 const key = "sb_publishable_6KKNQDlVMGuCo-exwQav1g_cIj-qroR"
 
 const options={
@@ -37,9 +37,7 @@ console.log(data);
       {data.map((dankort) => <CardIndex {dankort} />)}
   </section>
   <div class="btn-seemore">
-    <a href="/filtering">
-      <Button title = "SE FLERE" href=/>
-      </a>
+      <Button title = "SE FLERE" href="/filtering"/>
       </div>
   <PhysicalcardIndex />
   <Partners />
@@ -85,7 +83,7 @@ console.log(data);
     justify-content: center;
   }
 
-  @media (min-width: 800px) {
+  @media (min-width: 1024px) {
     section {
       margin: 0 120px;
     }

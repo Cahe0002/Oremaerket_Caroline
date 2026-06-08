@@ -1,37 +1,104 @@
 ---
 const { dankort } = Astro.props;
+import Button from "./Button.astro";
 ---
 
 <section>
-<article data-type={dankort.region}>
-    <img src={dankort.image} alt="billeder af naturområderne i Danmark" class="natureimg">
-  <div>
+    <div>
+        <div>
+    <img src={dankort.image} alt={dankort.place} fetchpriority="high" class="imgdetails">
+    </div>
+    <!-- <div class="small">
+    <img src={dankort.img_1} alt={dankort.place} class="imgsmall">
+    <img src={dankort.img_1} alt={dankort.place} class="imgsmall">
+    <img src={dankort.img_1} alt={dankort.place} class="imgsmall">
+    </div> -->
+    </div>
+    <div>
    <h1 class="h1">{dankort.place} - {dankort.city}</h1>
    <p class="p">{dankort.description}</p>
+   
+   <Button title= "GÅ TIL NATURFONDEN" href={dankort.link} target="_blank"></Button>
+   <img src="/assets/SVG/filtrering_desktop/bi_details_desktop.svg" fetchpriority="high" alt="bee svg" class="beesvg">
    </div>
-</article>
+</section>
+
+<section class="others">
+    <h2 class="h2">Andre kiggede på</h2>
+</section>
 
 
 <style>
-    article{
-       margin: 0 auto;
-       position: relative;
+    section{
+        display: grid;
+        margin: 0 var(--S-);
+        margin-top: var(--M-);
     }
 
-    
-    
-        .natureimg {
+    .tree {
+  display: flex;
+  flex-direction: row;
+  justify-content: end;
+
+}
+
+.p {
+    margin-bottom: var(--L-);
+}
+
+    .beesvg {
+        display: none;
+    }
+
+    .imgdetails {
         border-radius: 20px;
-        }
+        width: 100%;
+        height: auto;
+        aspect-ratio: 1/1;
+        object-fit: cover;
+    }
+
+    .imgsmall {
+        border-radius: 20px;
+    }
+    
 
 
         
- @media (min-width: 800px) {
+ @media (min-width: 1024px) {
 
-    article {
-                display: inline-block;
-                margin: 0px;
+    section {
+    grid-template-columns: repeat(2, 1fr);
+    margin: 0 120px;
+    margin-top: var(--L-);
+    margin-bottom: var(--L-);
+        
             }
+
+              .others{
+        margin-bottom: 0px;
+    }
+    
+
+        .beesvg {
+                position: absolute;
+                 top: 11rem;
+                 left: 8rem;
+                 transform: translate(100%, 100%);
+                 z-index: 1;
+                 display: block;
         }
+
+        .imgdetails {
+            width: 80%;
+            height: auto;
+            margin-bottom: var(--XL-);
+        }
+    
+        .button {
+  font-weight: 700;
+   padding: clamp(8px, 1.5vw, 15px) clamp(18px, 3vw, 40px);
+    }
+    }
 
 </style>
