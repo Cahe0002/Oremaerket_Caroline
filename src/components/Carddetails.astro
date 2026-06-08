@@ -1,0 +1,37 @@
+---
+const { dankort } = Astro.props;
+---
+
+<section>
+<article data-type={dankort.region}>
+    <img src={dankort.image} alt="billeder af naturområderne i Danmark" class="natureimg">
+  <div>
+   <h1 class="h1">{dankort.place} - {dankort.city}</h1>
+   <p class="p">{dankort.description}</p>
+   </div>
+</article>
+
+
+<style>
+    article{
+       margin: 0 auto;
+       position: relative;
+    }
+
+    
+    
+        .natureimg {
+        border-radius: 20px;
+        }
+
+
+        
+ @media (min-width: 800px) {
+
+    article {
+                display: inline-block;
+                margin: 0px;
+            }
+        }
+
+</style>

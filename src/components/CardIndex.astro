@@ -1,13 +1,13 @@
 ---
-const { Dankort } = Astro.props;
+const { dankort } = Astro.props;
 ---
 
 
 
-<article><h3 class="h4">{Dankort.place}</h3>
-    <img src={Dankort.image} alt="billeder af naturområderne i Danmark" loading="lazy" class="natureimg">
+<article><h3 class="h4">{dankort.place}</h3>
+    <img src={dankort.image} alt="billeder af naturområderne i Danmark" loading="lazy" class="natureimg">
     <div class="overlay">
-         <img src={Dankort.svg} alt="svg animation" loading="lazy" class="svgimg">
+         <img src={dankort.svg} alt="svg animation" loading="lazy" class="svgimg">
     </div>
     </article>
 

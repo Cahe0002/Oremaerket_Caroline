@@ -1,0 +1,30 @@
+---
+//@ts-nocheck 
+import Layout from '../../layouts/Layout.astro';
+import Carddetails from '../../components/Carddetails.astro';
+
+export async function getStaticPaths() {
+const endpoint = "https://ffbiajyenlsazjzqyxoa.supabase.co/rest/v1/dankort"
+
+const options={
+    headers:{
+        apikey: "sb_publishable_6KKNQDlVMGuCo-exwQav1g_cIj-qroR"
+    }
+}
+  const response = await fetch(endpoint, options);
+  const data = await response.json();
+
+  return data.map((dankort) => {
+    return {
+      params: { id: dankort.id.toString() },
+      props: { dankort },
+    };
+  });
+}
+
+const { id } = Astro.params
+const { dankort } = Astro.props;
+---
+<Layout>
+ <Carddetails dankort = {dankort}/>
+  </Layout>

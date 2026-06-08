@@ -1,14 +1,13 @@
 ---
-const { Dankort } = Astro.props;
+const { dankort } = Astro.props;
 ---
-
-<article data-type={Dankort.region}><h3 class="h4">{Dankort.place}</h3>
-    <img src={Dankort.image} alt="billeder af naturområderne i Danmark" width="400"
+<article data-type={dankort.region}><h3 class="h4">{dankort.place}</h3>
+    <img src={dankort.image} alt="billeder af naturområderne i Danmark" width="400"
   height="300" loading="lazy" class="natureimg">
     <div class="overlay">
-         <img src={Dankort.svg} alt="svg animation" loading="lazy" class="svgimg">
+         <img src={dankort.svg} alt="svg animation" loading="lazy" class="svgimg">
     </div>
-    <a href={Dankort.link} target="_blank">
+    <a href=`details/${dankort.id}`>
       <button class="p">LÆS MERE</button></a>
 </article>
 
