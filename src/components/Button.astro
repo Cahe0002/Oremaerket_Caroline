@@ -1,13 +1,13 @@
 ---
-const {title,href, target = "_self"} = Astro.props;
+const {title,href, target = "_self", variant} = Astro.props;
 ---
 
-<a href={href} class="button" target={target}>
+<a href={href} class={variant} target={target}>
   {title}
 </a>
 
 <style>
-.button {
+a {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -25,7 +25,11 @@ const {title,href, target = "_self"} = Astro.props;
   cursor: pointer;
 }
 
-.button:hover {
+a:hover {
   background-color:#BD191C;
+}
+
+.secondary {
+margin-top: var(--L-)
 }
 </style>

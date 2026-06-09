@@ -8,18 +8,19 @@ import Button from "./Button.astro";
         <div>
     <img src={dankort.image} alt={dankort.place} fetchpriority="high" class="imgdetails">
     </div>
-    <!-- <div class="small">
+    </div>
+    <div>
+   <h1 class="h1">{dankort.place} - {dankort.city}</h1>
+   <p class="p">{dankort.text_1}</p>
+   <p class="p">{dankort.text_2}</p>
+   <p class="p">{dankort.text_3}</p>
+   
+   <Button variant="secondary" title= "GÅ TIL NATURFONDEN" href={dankort.link} target="_blank"></Button>
+     <!-- <div class="small">
     <img src={dankort.img_1} alt={dankort.place} class="imgsmall">
     <img src={dankort.img_1} alt={dankort.place} class="imgsmall">
     <img src={dankort.img_1} alt={dankort.place} class="imgsmall">
     </div> -->
-    </div>
-    <div>
-   <h1 class="h1">{dankort.place} - {dankort.city}</h1>
-   <p class="p">{dankort.description}</p>
-   
-   <Button title= "GÅ TIL NATURFONDEN" href={dankort.link} target="_blank"></Button>
-   <img src="/assets/SVG/filtrering_desktop/bi_details_desktop.svg" fetchpriority="high" alt="bee svg" class="beesvg">
    </div>
 </section>
 
@@ -43,7 +44,7 @@ import Button from "./Button.astro";
 }
 
 .p {
-    margin-bottom: var(--L-);
+    margin-bottom: var(--S-);
 }
 
     .beesvg {
@@ -54,7 +55,6 @@ import Button from "./Button.astro";
         border-radius: 20px;
         width: 100%;
         height: auto;
-        aspect-ratio: 1/1;
         object-fit: cover;
     }
 
@@ -82,8 +82,8 @@ import Button from "./Button.astro";
 
         .beesvg {
                 position: absolute;
-                 top: 11rem;
-                 left: 8rem;
+                 top: 20rem;
+                 left: 10rem;
                  transform: translate(100%, 100%);
                  z-index: 1;
                  display: block;
@@ -94,10 +94,17 @@ import Button from "./Button.astro";
             height: auto;
             margin-bottom: var(--XL-);
         }
+
+        .imgsmall {
+            display: flex;
+            flex-direction: row;
+            max-width: fit-content;
+        }
     
-        .button {
-  font-weight: 700;
-   padding: clamp(8px, 1.5vw, 15px) clamp(18px, 3vw, 40px);
+        .naturfonden {
+            font-weight: 700;
+            padding: clamp(8px, 1.5vw, 15px) clamp(18px, 3vw, 40px);
+            margin-top: var(--XL-);
     }
     }
 
