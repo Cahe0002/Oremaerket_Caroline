@@ -1,13 +1,15 @@
 ---
-const { Dankort } = Astro.props;
+const { dankort } = Astro.props;
 ---
 
 
 
-<article><h3 class="h4">{Dankort.place}</h3>
-    <img src={Dankort.image} alt="billeder af naturområderne i Danmark" loading="lazy" class="natureimg">
+<article>
+<h4 class="h4">{dankort.place}</h4>
+  <h4 class="h4 city">{dankort.city}</h4>
+    <img src={dankort.image} alt="billeder af naturområderne i Danmark" loading="lazy" class="natureimg">
     <div class="overlay">
-         <img src={Dankort.svg} alt="svg animation" loading="lazy" class="svgimg">
+         <img src={dankort.svg} alt="svg animation" loading="lazy" class="svgimg">
     </div>
     </article>
 
@@ -17,7 +19,7 @@ const { Dankort } = Astro.props;
        position: relative;
     }
 
-    h3 {
+    .h4 {
         position: absolute;
         top: 0;
         left: 0;
@@ -25,6 +27,11 @@ const { Dankort } = Astro.props;
         margin: 1.4rem 1.6rem;
         z-index: 3;
         white-space: nowrap;
+    }
+
+    .city {
+        margin: 3rem 1.6rem;
+        font-weight: 200;
     }
 
     .overlay {

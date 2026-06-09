@@ -6,8 +6,8 @@ import Card from "../components/Card.astro";
 import Sec3Filtering from "../components/Sec3filtering.astro";
 import Buttonfiltering from "../components/Buttonfiltering.astro";
 
-const endpoint = "https://uigtgwaojslfwhlxfbfn.supabase.co/rest/v1/Dankort"
-const key = "sb_publishable_DddfZPvMIKUo6VRZTKBaMg_KaVqL-hm"
+const endpoint = "https://ffbiajyenlsazjzqyxoa.supabase.co/rest/v1/dankort"
+const key = "sb_publishable_6KKNQDlVMGuCo-exwQav1g_cIj-qroR"
 
 
 const options={
@@ -42,7 +42,7 @@ console.log(data);
 </section>
 
 <section class="card">
-  {data.map((Dankort) => <Card {Dankort} />)}
+  {data.map((dankort) => <Card {dankort} />)}
 </section>
 
 <Sec3Filtering/>
