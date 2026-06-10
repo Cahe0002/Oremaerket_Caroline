@@ -7,7 +7,7 @@ const { dankort } = Astro.props;
   <h4 class="h4 city">{dankort.city}</h4>
   
   <div>
-    <img src={dankort.image} alt={dankort.place} width="400" height="300" class="natureimg">
+    <img src={dankort.image} alt={dankort.place} loading="lazy" width="400" height="300" class="natureimg">
     <div class="overlay">
       <img src={dankort.svg} alt="svg animation" loading="lazy" class="svgimg">
     </div>
